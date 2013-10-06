@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/lispector'
+
+def ask(question)
+  print "#{ question } "
+  STDIN.readline
+end
+
+def prompt(line)
+  "lispector:#{ sprintf '%03d', line }>"
+end
+
+def repl
+  0.upto(Float::INFINITY) do |i|
+    begin
+      unless (input = ask(prompt(i))).empty?
+        print "=> #{ Lispector.lispify(Lispector.eval(input)) }"
+      end
+    rescue Lispector::Error => e
+      print "#{ e.class }: #{ e.message }"
+    rescue EOFError
+      print "\n\nExiting..."
+      break
+    ensure
+      puts
+    end
+  end
+end
+
+def version
+  puts `ruby -v`
+  puts "Lispector #{ Lispector::VERSION }"
+end
+
+case ARGV.first
+when 'repl' then repl
+when '-v'   then version
+end
