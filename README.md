@@ -1,24 +1,14 @@
 # Lispector
 
-TODO: Write a gem description
+I love Lisp. I love programming languages. I love building up stuff for fun.
 
-## Installation
+So, while studying functional programming - more precisely, while reading
+[Structure and Implementation of Computer
+Programs](http://mitpress.mit.edu/sicp/) - I decided try out the concepts and
+build a Lisp interpreter from the ground up.
 
-Add this line to your application's Gemfile:
-
-    gem 'lispector'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install lispector
-
-## Usage
-
-TODO: Write usage instructions here
+I don't know where I want to get with this, but generating Rubinius bytecode is
+an interesting idea.
 
 ## Contributing
 
