@@ -35,10 +35,7 @@ module Lispector
     private
 
     def build_lambda(params: [], exp: [], outer_binding: {})
-      puts outer_binding
       ->(*args) {
-        puts "RODA O LAMBDA"
-        puts outer_binding.merge(a_to_h(args.zip(params)))
         eval(
           exp, binding: outer_binding.merge(a_to_h(params.zip(args)))
         )
